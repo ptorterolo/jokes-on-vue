@@ -5,7 +5,7 @@
         <div class="lg:flex lg:gap-8 lg:items-center px-4 py-10 min-h-96">
           <div class="lg:w-1/2 mb-8 lg:mb-0">
             <div class="bg-white/20 rounded-xl p-4 lg:px-10 lg:w-3/4 lg:mx-auto">
-              <h1 class="text-4xl">
+              <h1 class="text-4xl" id="mainTitle">
                 A day without <span class="text-teal-600 font-bold">Laughter</span> is a day wasted
               </h1>
               <p class="text-lg mt-4">

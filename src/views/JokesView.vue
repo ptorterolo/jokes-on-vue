@@ -5,6 +5,7 @@
         <div class="flex gap-4">
           <div class="lg:w-1/4">
             <JokesFilters
+              id="jokes-filters"
               @mainCategoryUpdated="updateMainCategory"
               @params-updated="updateParams"
               @items-per-page-updated="updateItemsPerPage"
@@ -17,7 +18,7 @@
               </div>
             </template>
             <template v-for="joke in paginatedItems" :key="joke.id">
-              <JokeCard :joke="joke" class="my-4" />
+              <JokeCard :joke="joke" class="joke my-4" />
             </template>
             <div class="flex justify-between rounded my-4">
               <button class="btn" @click="prevPage" :disabled="currentPage === 1">Previous</button>
