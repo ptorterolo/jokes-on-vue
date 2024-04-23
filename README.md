@@ -1,5 +1,7 @@
 # jokes-on-vue
 
+## Live Demo
+https://jokesonvue.netlify.app/
 ## Project Setup
 
 ```sh
@@ -48,3 +50,14 @@ npm run test:e2e -- --debug
 ```sh
 npm run lint
 ```
+### Tech Stack
+
+| Plugin | Main Website |
+| ------ | ------ |
+| VueJs | https://vuejs.org/ |
+| Pinia | https://pinia.vuejs.org/ |
+| Axios | https://axios-http.com/ |
+| Tailwind | https://tailwindcss.com/ |
+| DaisyUi | https://daisyui.com/ |
+| Playwright | https://vitest.dev/ |
+| Vitest | https://playwright.dev/ |
