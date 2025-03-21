@@ -1,13 +1,9 @@
 <template>
-  <section class="lg:py-10 lg:px-4">
+  <section class="p-4 lg:py-10 bg-white/20 rounded-xl">
     <div class="flex justify-between mb-4">
       <p class="font-medium text-lg">Last from {{ category }}</p>
-      <RouterLink
-        class="font-medium"
-        v-if="jokes.data?.length"
-        :to="{ name: 'jokesByCategory', params: { category } }"
-        >Read All</RouterLink
-      >
+      <RouterLink class="font-medium" v-if="jokes.data?.length" :to="{ name: 'jokesByCategory', params: { category } }">
+        Read All</RouterLink>
     </div>
     <template v-if="jokes.isLoading">
       <div class="flex items-center justify-center">
@@ -39,7 +35,6 @@ const props = withDefaults(defineProps<Props>(), {
   category: 'Christmas'
 })
 const jokes = ref<useAxiosComposable>(useAxios(`${props.category}`, { amount: 3 }))
-jokes.value.getData()
 </script>
 
 <style scoped></style>

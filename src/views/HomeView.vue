@@ -5,7 +5,7 @@
         <div class="lg:flex lg:gap-8 lg:items-center px-4 py-10 min-h-96">
           <div class="lg:w-1/2 mb-8 lg:mb-0">
             <div class="bg-white/20 rounded-xl p-4 lg:px-10 lg:w-3/4 lg:mx-auto">
-              <h1 class="text-4xl" id="mainTitle">
+              <h1 class="text-4xl" id="mainTitle" data-testid="quote">
                 A day without <span class="text-teal-600 font-bold">Laughter</span> is a day wasted
               </h1>
               <p class="text-lg mt-4">
@@ -29,30 +29,23 @@
       </div>
     </section>
     <section class="min-h-80">
-      <div class="container bg-white/20 rounded-xl">
+      <div class="container">
         <ThreeJokes />
       </div>
     </section>
     <section id="programming" class="bg-no-repeat py-4 min-h-80">
-      <div class="container bg-white/20 rounded-xl">
+      <div class="container">
         <ThreeJokes category="Programming" />
       </div>
     </section>
     <section>
       <div class="container">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          <RouterLink
-            :to="{ name: 'jokesByCategory', params: { category: category.label } }"
-            v-for="(category, index) in categories"
-            :key="index"
-          >
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <RouterLink :to="{ name: 'jokesByCategory', params: { category: category.label } }"
+            v-for="(category, index) in categories" :key="index">
             <div class="card bg-white/20 shadow-xl group">
               <figure class="px-10 pt-10">
-                <img
-                  :src="category.img"
-                  :alt="category.label"
-                  class="rounded-xl w-24 group-hover:animate-pulse"
-                />
+                <img :src="category.img" :alt="category.label" class="rounded-xl w-24 group-hover:animate-pulse" />
               </figure>
               <div class="card-body items-center text-center">
                 <h2 class="card-title">{{ category.label }}</h2>
@@ -78,7 +71,6 @@ import categoryDarkImg from '@/assets/img/category-dark.png'
 
 import JokeCard from '@/components/JokeCard.vue'
 const mainJoke = ref(useAxios('Any', { type: 'twopart' }))
-mainJoke.value.getData()
 
 const categories = [
   { label: 'Misc', img: categoryMiscellaneousImg },

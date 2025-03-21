@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref, watchEffect } from 'vue'
 import axiosInstance from '@/services/axios'
 import type { Joke } from '@/types'
 export default function useAxios(mainCategory = 'Any', params = {}) {
@@ -8,11 +8,10 @@ export default function useAxios(mainCategory = 'Any', params = {}) {
 
   const getData = async () => {
     isLoading.value = true
+    error.value = null
+
     try {
       const response = await axiosInstance.get(`joke/${mainCategory}`, { params })
-
-      isLoading.value = false
-
       if (response.data.error) {
         error.value = response.data.message
         return
@@ -21,11 +20,14 @@ export default function useAxios(mainCategory = 'Any', params = {}) {
       if (Object.prototype.hasOwnProperty.call(response.data, 'jokes')) {
         data.value = response.data.jokes
       } else data.value = response.data
-    } catch (error) {
-      console.log(error)
+    } catch (err: any) {
+      error.value = err
+    } finally {
       isLoading.value = false
     }
   }
-
+  watchEffect(() => {
+    getData()
+  })
   return { data, error, isLoading, getData }
 }

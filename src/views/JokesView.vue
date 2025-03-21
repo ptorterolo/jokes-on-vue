@@ -2,7 +2,7 @@
   <main>
     <section class="bg-gradient-to-br from-violet-100 via-teal-300 to-cyan-500 py-4">
       <div class="container min-h-screen py-4">
-        <div class="flex gap-4">
+        <div class="lg:flex lg:gap-4">
           <div class="lg:w-1/4">
             <JokesFilters
               id="jokes-filters"

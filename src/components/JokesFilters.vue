@@ -89,7 +89,7 @@
         <select
           v-model="sortBy"
           @change="sortByUpdated"
-          class="select select-bordered w-full max-w-xs"
+          class="select select-bordered w-full lg:max-w-xs"
         >
           <option disabled value="" selected>Choose an option</option>
           <option value="type">Joke Type</option>
@@ -130,7 +130,7 @@
         <select
           v-model.number="itemsPerPage"
           @change="emits('itemsPerPageUpdated', itemsPerPage)"
-          class="select select-bordered w-full max-w-xs"
+          class="select select-bordered w-full lg:max-w-xs"
         >
           <option value="5">5</option>
           <option value="10">10</option>
